@@ -1,6 +1,6 @@
 # Agentic AI Workshop
 
-A hands-on teaching platform built to introduce the **Teque** engineering team to agentic AI, RAG systems, and production AI engineering. Ten pillars, each with working backend code and an interactive frontend page that explains the *why* behind every decision — designed to be walked through together as a team and then explored individually.
+A hands-on teaching platform built to introduce the **[Teque](https://www.teque.co.uk)** engineering team to agentic AI, RAG systems, and production AI engineering. Ten pillars, each with working backend code and an interactive frontend page that explains the *why* behind every decision — designed to be walked through together as a team and then explored individually.
 
 Every file is meant to be readable. Every architectural choice has an [ADR](docs/adrs/) so the design is defensible, not just functional. Every interactive demo calls a real backend that talks to real services (Anthropic, Voyage AI, Langfuse, Postgres + pgvector) — no mocks, no shortcuts, no "imagine if this worked."
 
