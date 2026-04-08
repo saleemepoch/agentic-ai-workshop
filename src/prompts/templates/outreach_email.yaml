@@ -1,0 +1,36 @@
+name: outreach_email
+description: Drafts a personalised outreach email for screened candidates
+variables:
+  - candidate_name
+  - job_title
+  - strengths
+  - reasoning
+versions:
+  - version: 1
+    created: "2025-12-01"
+    notes: "Generic outreach with placeholder personalisation."
+    template: |
+      Write an outreach email to {candidate_name} for the {job_title} role.
+      Mention their strengths: {strengths}.
+
+      Format: {{"subject": "...", "body": "..."}}
+
+  - version: 2
+    created: "2025-12-18"
+    notes: "Warmer tone, explicit reasoning, structured response."
+    template: |
+      Generate a personalised outreach email for this candidate. The tone
+      should be professional but warm, and demonstrate that you've actually
+      read their profile (not generic boilerplate).
+
+      Candidate: {candidate_name}
+      Role: {job_title}
+      Why they're a strong match: {reasoning}
+      Specific strengths to highlight: {strengths}
+
+      Respond with ONLY a JSON object:
+      {{
+        "subject": "<email subject, max 60 chars>",
+        "body": "<email body, 3-4 paragraphs, professional tone>",
+        "tone": "professional and enthusiastic"
+      }}

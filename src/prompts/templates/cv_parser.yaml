@@ -1,0 +1,32 @@
+name: cv_parser
+description: Parses unstructured CV text into structured JSON
+variables:
+  - cv_text
+versions:
+  - version: 1
+    created: "2025-12-01"
+    notes: "Basic CV parsing. Extracts name, experience, skills."
+    template: |
+      Parse this CV into JSON with fields: name, experience, skills.
+
+      CV:
+      {cv_text}
+
+      Respond with ONLY the JSON object.
+
+  - version: 2
+    created: "2025-12-20"
+    notes: "Expanded schema with summary, education, certifications."
+    template: |
+      Parse this CV into structured JSON with these fields:
+      - name: string
+      - summary: string (1-2 sentences)
+      - experience: list of {{title, company, dates, highlights: list[string]}}
+      - education: list of {{degree, institution, year}}
+      - skills: list of strings
+      - certifications: list of strings (empty if none)
+
+      CV:
+      {cv_text}
+
+      Respond with ONLY the JSON object.

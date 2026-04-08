@@ -1,0 +1,40 @@
+name: match_scorer
+description: Scores how well a candidate CV matches a job description
+variables:
+  - candidate
+  - job
+versions:
+  - version: 1
+    created: "2025-12-01"
+    notes: "Initial version. Simple scoring prompt."
+    template: |
+      Score how well this candidate matches the job from 0.0 to 1.0.
+      Respond with JSON: {{"score": <float>, "reasoning": "<sentence>"}}
+
+      Candidate:
+      {candidate}
+
+      Job:
+      {job}
+
+  - version: 2
+    created: "2025-12-15"
+    notes: "Added structured output with strengths and gaps. Improved consistency."
+    template: |
+      You are an experienced recruitment consultant. Evaluate how well
+      this candidate matches the requirements of this job.
+
+      Provide a detailed match assessment with:
+      - score: 0.0 (no match) to 1.0 (perfect match)
+      - reasoning: 2-3 sentences explaining the score
+      - strengths: list of specific matching points
+      - gaps: list of specific missing requirements
+
+      Respond with ONLY a JSON object:
+      {{"score": <float>, "reasoning": "<text>", "strengths": [...], "gaps": [...]}}
+
+      Candidate:
+      {candidate}
+
+      Job Requirements:
+      {job}
